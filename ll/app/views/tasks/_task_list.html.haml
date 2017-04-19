@@ -1,11 +1,12 @@
+%h1 Home things
 - if tasks.empty?
   %span.text-warning There are no tasks!
 - else
-  %table.table.table-hover.table-bordered
+  %table.table.table-hover.table-responsive
     %thead
       %tr
         %th Title
-        %th Created at
+        / Created at
         %th Completed
         %th Actions
     %tbody
@@ -13,7 +14,7 @@
         %tr
           %td
             %strong= task.title
-          %td.text-info= task.created_at
+          /td.text-info= task.created_at
           %td.text-success= task.completed
           %td
             = link_to task_path(task), remote: true, method: :delete, data: {confirm: "Are you sure you want to delete task #{task.title}?"} do
